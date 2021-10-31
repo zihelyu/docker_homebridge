@@ -1,0 +1,15 @@
+version: '2'
+services:
+  homebridge:
+    build: ./homebridge/
+    container_name: homebridge
+    restart: always
+    network_mode: host
+    environment:
+      - TZ=Asia/Shanghai
+      - PGID=1000
+      - PUID=1000
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8080
+    volumes:
+      - ../data/homebridge:/homebridge
